@@ -3,16 +3,15 @@ create table department(
     dept_name varchar(50) NOT NULL,
     hod_name varchar(50)
 );
--- mysql uses varchar not varchar 2 1st mistake auto increment is needed in primary key second mistake  NOT NULL is used when the data is mandatory 3rd mistake 
 
 create table student(
     student_id primary key AUTO_INCREMENT,
     first_name varchar(50) NOT NULL,
     last_name varchar(50),
      email varchar(50) UNIQUE,
-    --  unique should be used 
+    
     dept_id int
-    -- we must define the column before creating the foreign key 
+   
     FOREIGN KEY (dept_id) REFERENCES department(dept_id)
 );
 
@@ -39,4 +38,5 @@ create table grades(
     FOREIGN KEY (enrollment_id) REFERENCES (enrollments),
     marks_obtained int,
     grade_letter char(2)
+
 );
